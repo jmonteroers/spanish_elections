@@ -1,6 +1,6 @@
 """
 This module extracts the information from rows 3 and 4 of the
-excel file PROV_02_201911_1.xlsx
+excel file data/PROV_02_201911_1.xlsx
 
 Rows 3 and 4 link political party official names to their acronyms
 
