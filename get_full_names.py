@@ -10,15 +10,13 @@ Possible future use: allow someone to run a function based on name of political 
 """
 
 import pandas as pd
-import pprint
+import json
 
 # extract also row 5
 # why? to avoid having to deal with repeated political party acronyms
 # check excel file for further reference
-df = pd.read_excel("PROV_02_201911_1.xlsx",
+df = pd.read_excel("data/PROV_02_201911_1.xlsx",
                    header=[3, 4, 5], nrows=0)
-pdb.set_trace()
-
 # read columns and create dictionary
 dict_acronym_name = {}
 for col in df.columns:
@@ -29,6 +27,6 @@ for col in df.columns:
         dict_acronym_name[political_party_acronym] = political_party_name
 
 # save as Python module
-fileObj = open('full_names.py', 'w')
-fileObj.write('dict_full_names = ' + pprint.pformat(dict_full_names) + '\n')
-fileObj.close()
+file_conn = open('data/dict_acronym_name.json', 'w')
+json.dump(dict_acronym_name, file_conn)
+file_conn.close()
