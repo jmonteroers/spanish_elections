@@ -31,7 +31,7 @@ def extract_general_data(lookup_table):
     last_column_index = string.ascii_lowercase.index('q')
     general_data = lookup_table.iloc[:, :last_column_index]
     # drop column levels 0 and 1
-    general_data = general_data.droplevel(1, axis=1)
+    general_data = general_data.droplevel(0, axis=1)
     # pass all column names to lower case
     general_data.columns = general_data.columns.str.lower()
     # clean province and autonomous community columns
@@ -42,6 +42,11 @@ def extract_general_data(lookup_table):
     general_data['código de provincia'] = \
     general_data['código de provincia'].astype('int8')
 
+    # add diputados per province
+    indices_with_diputados = [idx for idx, col in enumerate(lookup_table.columns)
+                              if col[1] == 'Diputados']
+    general_data['diputados'] = lookup_table.iloc[:, indices_with_diputados]\
+                                .sum(axis=1)
     return general_data
 
 def extract_results_by_province(lookup_table):
@@ -62,12 +67,15 @@ def extract_results_by_province(lookup_table):
     results.columns = ['provincia'] + list(results.columns[1:])
     # clean string columns
     results = clean_string_columns(results, ['provincia'])
-    pdb.set_trace()
+
+    return results
 
 if __name__ == '__main__':
     lookup = pd.read_excel("data/input/PROV_02_201911_1.xlsx",
                        header=[4, 5], nrows=52)
-    extract_results_by_province(lookup)
+    results = extract_results_by_province(lookup)
+    general_data = extract_general_data(lookup)
+    pdb.set_trace()
 
 
 run_old = False
