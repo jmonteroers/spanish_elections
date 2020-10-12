@@ -42,7 +42,7 @@ def dhondt_rule_long_single_province(results: pd.DataFrame,
     '''
     # set political party as index of DataFrame
     if not inplace:
-        results = results.copy
+        results = results.copy()
     results.set_index(party_col_name, inplace=True)
     n_seats_remaining = n_seats
     results[out_col_name] = 0
@@ -63,22 +63,33 @@ def dhondt_rule_long_single_province(results: pd.DataFrame,
 
 def dhondt_rule_long(results: pd.DataFrame,
                      n_seats: dict,
-                     province_col_name='province'
+                     province_col_name='province',
                      party_col_name='party',
                      votes_col_name='votes',
-                     out_col_name='seats',
-                     inplace=False) -> pd.DataFrames:
+                     out_col_name='seats') -> pd.DataFrame:
+    temporary_results = None
     for province, results_by_province in results.groupby(province_col_name):
-        # now i could easily apply each dhondt rule
-        # problem, aggregation!
         n_seats_province = n_seats[province]
-        pdb.set_trace()
+        results_with_seats = \
+        dhondt_rule_long_single_province(results_by_province,
+                                         n_seats_province,
+                                         party_col_name=party_col_name,
+                                         votes_col_name=votes_col_name,
+                                         out_col_name=out_col_name,
+                                         inplace=False)
+        if temporary_results is not None:
+            temporary_results = pd.concat([temporary_results,
+                                           results_with_seats])
+        else:
+            temporary_results = results_with_seats
+
+    return results_with_seats
 
 
 
 dict_version = False
-long_version_single_province = True
-long_version = False
+long_version_single_province = False
+long_version = True
 if __name__ == '__main__' and dict_version:
     results = {'PSOE': 15000,
                'PP': 20000,
@@ -98,4 +109,14 @@ if __name__ == '__main__' and long_version_single_province:
 
 
 if __name__ == '__main__' and long_version:
-    pass
+    out_dir = 'data/output/'
+    general_data = pd.read_pickle(out_dir + 'general_data.pkl')
+    results = pd.read_pickle(out_dir + 'results_by_province.pkl')
+    votos = results[results.result == 'votos']
+    n_seats = pd.Series(general_data.diputados.values,
+                        index=general_data.provincia).to_dict()
+    results_with_seats = \
+    dhondt_rule_long(votos, n_seats, province_col_name='provincia',
+                     party_col_name='party', votes_col_name='value',
+                     out_col_name='seats')
+    pdb.set_trace()
