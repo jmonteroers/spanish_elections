@@ -3,7 +3,14 @@
 
 import pandas as pd
 import string
+import os.path
 import pdb
+
+
+
+def save_df_to_pkl(df, save_dir, filename):
+    df.to_pickle(os.path.join(save_dir, filename))
+
 
 def clean_string_columns(df, columns_to_strip):
     '''
@@ -23,9 +30,26 @@ def clean_string_columns(df, columns_to_strip):
     df.provincia = df.provincia.str.replace(r" / .*$", "")
     return df
 
-def extract_general_data(lookup_table):
+
+def extract_general_data(lookup_table, save_output=False,
+                         save_dir=None, filename='general_data.pkl'):
     '''
-    Note: should add saving feature?
+    Arguments:
+    - lookup_table is a pandas dataframe from reading the excel with the results
+    of general elections published by Spanish official authorities
+    - save_output, boolean whether to save the output
+    - save_dir, directory where to save the output. only active if save_output is
+    True
+
+    Return:
+    - general_data: a pandas dataframe with general information of the elections
+    by province. Columns:
+    ['comunidad', 'código de provincia', 'provincia', 'población',
+       'número de mesas', 'censo electoral sin cera', 'censo cera',
+       'total censo electoral', 'solicitudes voto cera aceptadas',
+       'total votantes cer', 'total votantes cera', 'total votantes',
+       'votos válidos', 'votos a candidaturas', 'votos en blanco',
+       'votos nulos', 'diputados']
     '''
     # p is the last column with general data (check excel)
     last_column_index = string.ascii_lowercase.index('q')
@@ -47,9 +71,25 @@ def extract_general_data(lookup_table):
                               if col[1] == 'Diputados']
     general_data['diputados'] = lookup_table.iloc[:, indices_with_diputados]\
                                 .sum(axis=1)
+    if save_output:
+        save_df_to_pkl(general_data, save_dir, filename)
     return general_data
 
-def extract_results_by_province(lookup_table):
+
+def extract_results_by_province(lookup_table, save_output=False,
+                                save_dir=None, filename='results_by_province.pkl'):
+    '''
+    Arguments:
+    - lookup_table is a pandas dataframe from reading the excel with the results
+    of general elections published by Spanish official authorities
+    - save_output, boolean whether to save the output
+    - save_dir, directory where to save the output. only active if save_output is
+    True
+
+    Return:
+    - results: a pandas dataframe with the results by province and political party
+    in terms of votes and seats
+    '''
     first_column_index = string.ascii_lowercase.index('q')
     # select columns with results from excel
     # column 2 is Province name
@@ -67,14 +107,20 @@ def extract_results_by_province(lookup_table):
     results.columns = ['provincia'] + list(results.columns[1:])
     # clean string columns
     results = clean_string_columns(results, ['provincia'])
-
+    if save_output:
+        save_df_to_pkl(results, save_dir, filename)
     return results
 
+
 if __name__ == '__main__':
-    lookup = pd.read_excel("data/input/PROV_02_201911_1.xlsx",
+    input_dir = 'data/input/'
+    output_dir = 'data/output/'
+    lookup = pd.read_excel(input_dir + "PROV_02_201911_1.xlsx",
                        header=[4, 5], nrows=52)
-    results = extract_results_by_province(lookup)
-    general_data = extract_general_data(lookup)
+    results = extract_results_by_province(lookup, save_output=True,
+                                          save_dir=output_dir)
+    general_data = extract_general_data(lookup, save_output=True,
+                                        save_dir=output_dir)
     pdb.set_trace()
 
 
