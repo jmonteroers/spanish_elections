@@ -28,20 +28,34 @@ def dhondt_rule(results: dict, n_seats) -> dict:
 
 
 def dhondt_rule_long_single_province(results: pd.DataFrame,
-                                     n_seats: 'number of seats to allocate',
+                                     n_seats: 'number of seats to allocate'=None,
                                      party_col='party',
                                      votes_col='votes',
                                      seats_col='seats',
+                                     total_seats_col='total_seats',
                                      inplace=False) -> pd.DataFrame:
     '''
     Arguments:
     - results is a pd.DataFrame with a column with the name of the political
     parties and another column with votes for each party
+    - n_seats is the number of total seats corresponding to this province. if None,
+    method expects that results has a column named `total_seats_col` with an
+    unique value, the total number of seats
 
     Outputs:
     - results with additional column with number of seats allocated to each
     political party, named `seats_col`
     '''
+    if n_seats is None and total_seats_col not in results.columns:
+        raise(ValueError('If n_seats is None, method requires that'
+                         ' total number of seats is specified as a column with name'
+                         ' `total_seats_col`(by default, "total_seats"'))
+    elif n_seats is None and total_seats_col in results.columns:
+        total_seats = results[total_seats_col].unique()
+        if len(total_seats) > 1:
+            raise(ValueError('there are more than one value in column `total_seats_col`.'
+                             'There should only be one value of `total_seats_col` per province.'))
+        n_seats = total_seats[0]
     if not inplace:
         results = results.copy()
     # set political party as index of DataFrame
@@ -73,35 +87,25 @@ def dhondt_rule_long(results: pd.DataFrame,
                      votes_col='votes',
                      seats_col='seats') -> pd.DataFrame:
     '''
-    Runs `dhont_rule_long_single province` for each province in results dataframe.
+    Runs `dhondt_rule_long_single province` for each province in results dataframe.
 
-    There probably exists a more efficient way to do this operation. What I have in
-    mind would imply to add n_seats as an additional column to results, and rewrite
-    `dhont_rule_long_single province` to read the number of seats from results.
-    Alternatively, could adapt dhont_rule_long_single_province to run with a dictionary
+    Never works in place.
     '''
-    results_with_seats = None
-    for province, results_by_province in results.groupby(province_col):
-        n_seats_province = n_seats[province]
-        results_with_seats_province = \
-        dhondt_rule_long_single_province(results_by_province,
-                                         n_seats_province,
-                                         party_col=party_col,
-                                         votes_col=votes_col,
-                                         seats_col=seats_col,
-                                         inplace=False)
-        if results_with_seats is not None:
-            results_with_seats = pd.concat([results_with_seats,
-                                           results_with_seats_province])
-        else:
-            results_with_seats = results_with_seats_province
-
-    return results_with_seats
+    results = results.copy()
+    results['total_seats'] = results[province_col].map(n_seats)
+    results = \
+    results.groupby(province_col).apply(dhondt_rule_long_single_province,
+                                        party_col=party_col,
+                                        votes_col=votes_col,
+                                        seats_col=seats_col,
+                                        total_seats_col='total_seats',
+                                        inplace=False)
+    return results.reset_index(drop=True)
 
 
 dict_version = False
-long_version_single_province = True
-long_version = False
+long_version_single_province = False
+long_version = True
 if __name__ == '__main__' and dict_version:
     results = {'PSOE': 15000,
                'PP': 20000,
@@ -117,6 +121,14 @@ if __name__ == '__main__' and long_version_single_province:
                                      party_col='political_parties',
                                      seats_col='seats',
                                      inplace=True)
+    # without n_seats
+    results2 = pd.DataFrame({'political_parties': ['Podemos', 'PSOE', 'Cs'],
+                            'votes': [10000, 7500, 2000],
+                            'total_seats': 4})
+    results2_with_seats = \
+    dhondt_rule_long_single_province(results2,
+                                    party_col='political_parties',
+                                    seats_col='seats')
     pdb.set_trace()
 
 
