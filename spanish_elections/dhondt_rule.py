@@ -72,21 +72,29 @@ def dhondt_rule_long(results: pd.DataFrame,
                      party_col='party',
                      votes_col='votes',
                      seats_col='seats') -> pd.DataFrame:
-    temporary_results = None
+    '''
+    Runs `dhont_rule_long_single province` for each province in results dataframe.
+
+    There probably exists a more efficient way to do this operation. What I have in
+    mind would imply to add n_seats as an additional column to results, and rewrite
+    `dhont_rule_long_single province` to read the number of seats from results.
+    Alternatively, could adapt dhont_rule_long_single_province to run with a dictionary
+    '''
+    results_with_seats = None
     for province, results_by_province in results.groupby(province_col):
         n_seats_province = n_seats[province]
-        results_with_seats = \
+        results_with_seats_province = \
         dhondt_rule_long_single_province(results_by_province,
                                          n_seats_province,
                                          party_col=party_col,
                                          votes_col=votes_col,
                                          seats_col=seats_col,
                                          inplace=False)
-        if temporary_results is not None:
-            temporary_results = pd.concat([temporary_results,
-                                           results_with_seats])
+        if results_with_seats is not None:
+            results_with_seats = pd.concat([results_with_seats,
+                                           results_with_seats_province])
         else:
-            temporary_results = results_with_seats
+            results_with_seats = results_with_seats_province
 
     return results_with_seats
 
