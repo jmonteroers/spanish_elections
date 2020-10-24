@@ -10,6 +10,6 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'pandas >= 1.1.3',
-        'json'
+        'xlrd >= 1.0.0'
     ]
 )
