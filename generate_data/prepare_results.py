@@ -117,13 +117,16 @@ def extract_results_by_province(file_location, save_output=False,
 
 
 if __name__ == '__main__':
-    input_dir = '../data/input/'
-    output_dir = '../data/output/'
+    # generate
+    input_dir = 'data/input/'
+    output_dir = 'data/output/'
     filename = 'PROV_02_201911_1.xlsx'
     results = extract_results_by_province(input_dir + filename,
                                           save_output=True,
-                                          save_dir=output_dir)
+                                          save_dir=output_dir,
+                                          filename='results_by_province.pkl')
     general_data = extract_general_data(input_dir + filename,
                                         save_output=True,
-                                        save_dir=output_dir)
+                                        save_dir=output_dir,
+                                        filename='general_data.pkl')
     pdb.set_trace()

@@ -11,5 +11,7 @@ setup(
     install_requires=[
         'pandas >= 1.1.3',
         'xlrd >= 1.0.0'
-    ]
+    ],
+    include_package_data=True,
+    package_data={'': ['data/*.pkl', 'data/*.json']}
 )
