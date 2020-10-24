@@ -1,8 +1,10 @@
 import pdb
 import pandas as pd
 
+
 def argmax_dict(d):
     return sorted(d, key=lambda x: -d[x])[0]
+
 
 def dhondt_rule(results: dict, n_seats) -> dict:
     '''
@@ -84,7 +86,6 @@ def dhondt_rule_long(results: pd.DataFrame,
             temporary_results = results_with_seats
 
     return results_with_seats
-
 
 
 dict_version = False

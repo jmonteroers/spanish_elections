@@ -1,5 +1,4 @@
 import pandas as pd
-
 import pdb
 
 
@@ -61,6 +60,7 @@ def transfer_votes_long(results: pd.DataFrame,
                           replace=replace,
                           final_votes_col=final_votes_col)
     return results_with_transfers.reset_index(drop=True)
+
 
 dict_version = False
 long_version_single_province = True
