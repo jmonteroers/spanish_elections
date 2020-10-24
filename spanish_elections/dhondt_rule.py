@@ -29,9 +29,9 @@ def dhondt_rule(results: dict, n_seats) -> dict:
 
 def dhondt_rule_long_single_province(results: pd.DataFrame,
                                      n_seats: 'number of seats to allocate',
-                                     party_col_name='party',
-                                     votes_col_name='votes',
-                                     out_col_name='seats',
+                                     party_col='party',
+                                     votes_col='votes',
+                                     seats_col='seats',
                                      inplace=False) -> pd.DataFrame:
     '''
     Arguments:
@@ -40,22 +40,25 @@ def dhondt_rule_long_single_province(results: pd.DataFrame,
 
     Outputs:
     - results with additional column with number of seats allocated to each
-    political party, named `out_col_name`
+    political party, named `seats_col`
     '''
-    # set political party as index of DataFrame
     if not inplace:
         results = results.copy()
-    results.set_index(party_col_name, inplace=True)
+    # set political party as index of DataFrame
+    results.set_index(party_col, inplace=True)
     n_seats_remaining = n_seats
-    results[out_col_name] = 0
-    transformed_results = results[votes_col_name].copy()
+    results[seats_col] = 0
+    # transformed_results is an auxiliary pandas Series with the votes taken
+    # into account at each step
+    transformed_results = results[votes_col].copy()
     while n_seats_remaining:
         most_voted_party = transformed_results.idxmax()
         # add seat to most voted party
-        results.loc[most_voted_party, out_col_name] += 1
+        results.loc[most_voted_party, seats_col] += 1
         n_seats_remaining -= 1
         # apply new number of seats to transformed results
-        seats_most_voted_party = results.loc[most_voted_party, out_col_name]
+        seats_most_voted_party = results.loc[most_voted_party,
+                                             seats_col]
         ratio_seats = seats_most_voted_party/(1 + seats_most_voted_party)
         transformed_results.loc[most_voted_party] *= ratio_seats
     results.reset_index(inplace=True)
@@ -65,19 +68,19 @@ def dhondt_rule_long_single_province(results: pd.DataFrame,
 
 def dhondt_rule_long(results: pd.DataFrame,
                      n_seats: dict,
-                     province_col_name='province',
-                     party_col_name='party',
-                     votes_col_name='votes',
-                     out_col_name='seats') -> pd.DataFrame:
+                     province_col='province',
+                     party_col='party',
+                     votes_col='votes',
+                     seats_col='seats') -> pd.DataFrame:
     temporary_results = None
-    for province, results_by_province in results.groupby(province_col_name):
+    for province, results_by_province in results.groupby(province_col):
         n_seats_province = n_seats[province]
         results_with_seats = \
         dhondt_rule_long_single_province(results_by_province,
                                          n_seats_province,
-                                         party_col_name=party_col_name,
-                                         votes_col_name=votes_col_name,
-                                         out_col_name=out_col_name,
+                                         party_col=party_col,
+                                         votes_col=votes_col,
+                                         seats_col=seats_col,
                                          inplace=False)
         if temporary_results is not None:
             temporary_results = pd.concat([temporary_results,
@@ -89,8 +92,8 @@ def dhondt_rule_long(results: pd.DataFrame,
 
 
 dict_version = False
-long_version_single_province = False
-long_version = True
+long_version_single_province = True
+long_version = False
 if __name__ == '__main__' and dict_version:
     results = {'PSOE': 15000,
                'PP': 20000,
@@ -103,21 +106,21 @@ if __name__ == '__main__' and long_version_single_province:
     results = pd.DataFrame({'political_parties': ['Podemos', 'PSOE', 'Cs'],
                             'votes': [10000, 7500, 2000]})
     dhondt_rule_long_single_province(results, n_seats=3,
-                                     party_col_name='political_parties',
-                                     out_col_name='seats',
+                                     party_col='political_parties',
+                                     seats_col='seats',
                                      inplace=True)
     pdb.set_trace()
 
 
 if __name__ == '__main__' and long_version:
-    out_dir = 'data/output/'
+    out_dir = '../data/output/'
     general_data = pd.read_pickle(out_dir + 'general_data.pkl')
     results = pd.read_pickle(out_dir + 'results_by_province.pkl')
     votos = results[results.result == 'votos']
     n_seats = pd.Series(general_data.diputados.values,
                         index=general_data.provincia).to_dict()
     results_with_seats = \
-    dhondt_rule_long(votos, n_seats, province_col_name='provincia',
-                     party_col_name='party', votes_col_name='value',
-                     out_col_name='seats')
+    dhondt_rule_long(votos, n_seats, province_col='provincia',
+                     party_col='party', votes_col='value',
+                     seats_col='seats')
     pdb.set_trace()
