@@ -31,7 +31,7 @@ def clean_string_columns(df, columns_to_strip):
     return df
 
 
-def extract_general_data(lookup_table, save_output=False,
+def extract_general_data(file_location, save_output=False,
                          save_dir=None, filename='general_data.pkl'):
     '''
     Arguments:
@@ -51,6 +51,8 @@ def extract_general_data(lookup_table, save_output=False,
        'votos válidos', 'votos a candidaturas', 'votos en blanco',
        'votos nulos', 'diputados']
     '''
+    lookup_table = pd.read_excel(file_location,
+                                 header=[4, 5], nrows=52)
     # p is the last column with general data (check excel)
     last_column_index = string.ascii_lowercase.index('q')
     general_data = lookup_table.iloc[:, :last_column_index]
@@ -76,7 +78,7 @@ def extract_general_data(lookup_table, save_output=False,
     return general_data
 
 
-def extract_results_by_province(lookup_table, save_output=False,
+def extract_results_by_province(file_location, save_output=False,
                                 save_dir=None, filename='results_by_province.pkl'):
     '''
     Arguments:
@@ -90,6 +92,8 @@ def extract_results_by_province(lookup_table, save_output=False,
     - results: a pandas dataframe with the results by province and political party
     in terms of votes and seats
     '''
+    lookup_table = pd.read_excel(file_location,
+                                 header=[4, 5], nrows=52)
     first_column_index = string.ascii_lowercase.index('q')
     # select columns with results from excel
     # column 2 is Province name
@@ -115,10 +119,11 @@ def extract_results_by_province(lookup_table, save_output=False,
 if __name__ == '__main__':
     input_dir = '../data/input/'
     output_dir = '../data/output/'
-    lookup = pd.read_excel(input_dir + "PROV_02_201911_1.xlsx",
-                       header=[4, 5], nrows=52)
-    results = extract_results_by_province(lookup, save_output=True,
+    filename = 'PROV_02_201911_1.xlsx'
+    results = extract_results_by_province(input_dir + filename,
+                                          save_output=True,
                                           save_dir=output_dir)
-    general_data = extract_general_data(lookup, save_output=True,
+    general_data = extract_general_data(input_dir + filename,
+                                        save_output=True,
                                         save_dir=output_dir)
     pdb.set_trace()
