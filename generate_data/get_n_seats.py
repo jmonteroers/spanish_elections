@@ -11,4 +11,4 @@ seats.to_json(output_file)
 # check
 with open(output_file) as file_with_seats:
     parsed = json.loads(file_with_seats.read())
-    pdb.set_trace()
+pdb.set_trace()
