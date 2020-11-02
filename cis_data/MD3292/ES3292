@@ -1,0 +1,662 @@
+DATA LIST FILE= 'DA3292'
+/ESTUDIO 1-4 CUES 5-9 CCAA 10-11 PROV 12-13 MUN 14-16 CAPITAL 17 TAMUNI 18 ENTREV 19-22 TIPO_TEL 23
+SEXO 24 EDAD 25-26 P0 27 P1 28 P2 29 P3 30-31 P4 32 P4A_1 33 P4A_2 34 P4A_3 35 P4A_4 36 P4A_5 37
+P4A_6 38 P4A_9 39 P4B 40 P4C 41 P4D 42 P4E 43 P4F 44 P4G_1 45 P4G_2 46 P4G_3 47 P4G_4 48 P4G_5 49
+P4G_9 50 P4H_1 51 P4H_2 52 P4H_3 53 P4H_4 54 P4H_5 55 P4H_6 56 P4H_9 57 P4I 58 P5 59 P5A_1 60
+P5A_2 61 P5A_3 62 P5A_4 63 P5B_1 64 P5B_2 65 P5B_3 66 P5B_4 67 P6 68-69 P6A 70 P7 71 P8 72 P9 73
+P10 74 P11_1 75-76 P11_2 77-78 P12 79 P13_1 80-81 P13_2 82-83 P14_1 84-85 P14_2 86-87 P15 88
+P16 89 P17_1 90-91 P17_2 92-93 P17_3 94-95 P18_1 96-97 P18_2 98-99 P18_3 100-101 P19_1 102-103
+P19_2 104-105 P19_3 106-107 P19_4 108-109 P19_5 110-111 P20 112 P21 113 P22 114-115 INTENCIONG 116-117
+INTENCIONGALTER 118-119 SIMPATIA 120-121 ESCIDEOL 122-123 ESCIDEOLPOLI_1 124-125 ESCIDEOLPOLI_2 126-127
+ESCIDEOLPOLI_3 128-129 ESCIDEOLPOLI_4 130-131 ESCIDEOLPOLI_5 132-133 P27_1 134-135 P27_2 136-137
+P27_3 138-139 P27_4 140-141 P27_5 142-143 PARTICIPACIONG 144 RECUVOTOG 145-146 CERCANIA 147-148
+FIDEVOTO 149 P31 150 ESCUELA 151 NIVELESTENTREV 152-153 RELIGION 154 ECIVIL 155 SITLAB 156 CNO11 157-158
+CLASESOCIAL 159-160 IA_E1_DIA 161-162 IA_E1_MES 163-164 IA_E1_ANYO 165-166 IA_E2 167 IA_E3 168-170
+IA_E4 171 P4A_7 172 P4A_8 173 P4A_10 174 P4A_11 175 INTENCIONGR 176-177 INTENCIONGALTERR 178-179
+VOTOSIMG 180-181 RECUVOTOGR 182-183 RECUERDO 184-185 ESTUDIOS 186 CLASESUB 187 .
+
+VARIABLE LABELS
+ESTUDIO 'Código del estudio'
+/CUES 'Cuestionario nº'
+/CCAA 'Comunidad autónoma'
+/PROV 'Provincia'
+/MUN 'Municipio'
+/CAPITAL 'Capital'
+/TAMUNI 'Tamaño de municipio'
+/ENTREV 'Nº entrevistador/a'
+/TIPO_TEL 'Tipo de teléfono'
+/SEXO 'Sexo de la persona entrevistada'
+/EDAD 'Edad de la persona entrevistada'
+/P0 'Nacionalidad de la persona entrevistada'
+/P1 'Grado de preocupación ante la situación del coronavirus COVID-19'
+/P2 'Valoración de las consecuencias económicas y laborales de la crisis del COVID-19'
+/P3 'Opinión sobre si habría que tomar medidas de control y aislamiento más exigentes o continuar como en la actualidad'
+/P4 'Contacto con los servicios sanitarios por pensar que se tienen síntomas del COVID-19'
+/P4A_1 'A mi médico/a de atención primaria'
+/P4A_2 'Al servicio de urgencias de atención primaria'
+/P4A_3 'Al servicio de urgencias del hospital'
+/P4A_4 'Al 061/112'
+/P4A_5 'A un teléfono 900 que la comunidad puso para estos casos'
+/P4A_6 'Otras respuestas'
+/P4A_9 'N.C.'
+/P4B 'Valoración de la atención sanitaria recibida en los servicios sanitarios a los que se acudió a causa del COVID-19'
+/P4C 'Información recibida en los servicios sanitarios a los que se acudió a causa del COVID-19 sobre el mantenimiento de medidas de aislamiento'
+/P4D 'Realización de la prueba del coronavirus en los servicios sanitarios a los que se acudió a causa del COVID-19'
+/P4E 'Diagnosticado de infección por COVID-19 en la prueba del coronavirus'
+/P4F 'Evolución de enfermedad a los diagnosticados por COVID-19 en la prueba'
+/P4G_1 'El/la médico/a de atención primaria'
+/P4G_2 'La/el enfermera/o de atención primaria'
+/P4G_3 'El 061/112'
+/P4G_4 'Otros/as profesionales sanitarios/as'
+/P4G_5 'No tuve seguimiento por ningún/a profesional sanitario/a'
+/P4G_9 'N.C.'
+/P4H_1 'Telefónica'
+/P4H_2 'A través de Internet'
+/P4H_3 'Vinieron a visitarme a casa'
+/P4H_4 'Acudí al centro de salud'
+/P4H_5 'En algún momento acudí a urgencias del hospital'
+/P4H_6 'Otras respuestas'
+/P4H_9 'N.C.'
+/P4I 'Valoración de la asistencia sanitaria recibida durante la convalecencia en el hogar por COVID-19'
+/P5 'Conveniencia de reformar la sanidad española tras la pandemia del COVID-19'
+/P5A_1 'Dedicar más recursos económicos'
+/P5A_2 'Aumentar las plantillas'
+/P5A_3 'Aumentar la coordinación entre las CC. AA.'
+/P5A_4 'Aumentar las instalaciones y los recursos dedicados a prevenir y abordar las pandemias'
+/P5B_1 'Dedicar más recursos económicos'
+/P5B_2 'Aumentar las plantillas'
+/P5B_3 'Aumentar la coordinación entre las CC. AA.'
+/P5B_4 'Aumentar las instalaciones y los recursos dedicados a prevenir y abordar las pandemias'
+/P6 'Forma en que se debería organizar la enseñanza mientras dure la pandemia'
+/P6A 'Tenencia o no de hijos/as menores de 16 años'
+/P7 'Predisposición a vacunarse inmediatamente contra el COVID-19'
+/P8 'Grado de confianza en la política que está siguiendo el Gobierno actual para luchar contra el COVID-19'
+/P9 'De terminación de quién le gustaría que se hiciera cargo de la lucha contra la pandemia'
+/P10 'Valoración del comportamiento de los/as españoles/as en la forma de afrontar las medidas contra el COVID-19'
+/P11_1 'Primer lugar'
+/P11_2 'Segundo lugar'
+/P12 'Conocimiento de la Agenda Horizonte 2030'
+/P13_1 'Primer lugar'
+/P13_2 'Segundo lugar'
+/P14_1 'Primer lugar'
+/P14_2 'Segundo lugar'
+/P15 'Valoración de la situación económica general de España'
+/P16 'Valoración de la situación económica personal actual'
+/P17_1 'Primer problema'
+/P17_2 'Segundo problema'
+/P17_3 'Tercer problema'
+/P18_1 'Primer problema'
+/P18_2 'Segundo problema'
+/P18_3 'Tercer problema'
+/P19_1 'Pedro Sánchez'
+/P19_2 'Pablo Casado'
+/P19_3 'Pablo Iglesias'
+/P19_4 'Santiago Abascal'
+/P19_5 'Inés Arrimadas'
+/P20 'Grado de confianza en el presidente del Gobierno central: Pedro Sánchez'
+/P21 'Grado de confianza en el líder del principal partido de la oposición (PP): Pablo Casado'
+/P22 'Preferencia personal como presidente del Gobierno central'
+/INTENCIONG 'Intención de voto en supuestas elecciones generales'
+/INTENCIONGALTER 'Intención de voto alternativo en supuestas elecciones generales'
+/SIMPATIA 'Partido político por el que se siente más simpatía en las elecciones generales (con filtro)'
+/ESCIDEOL 'Escala de autoubicación ideológica (1-10)'
+/ESCIDEOLPOLI_1 'Pedro Sánchez'
+/ESCIDEOLPOLI_2 'Pablo Casado'
+/ESCIDEOLPOLI_3 'Pablo Iglesias'
+/ESCIDEOLPOLI_4 'Santiago Abascal'
+/ESCIDEOLPOLI_5 'Inés Arrimadas'
+/P27_1 'Pedro Sánchez'
+/P27_2 'Pablo Casado'
+/P27_3 'Santiago Abascal'
+/P27_4 'Pablo Iglesias'
+/P27_5 'Inés Arrimadas'
+/PARTICIPACIONG 'Participación electoral en las elecciones generales de noviembre de 2019'
+/RECUVOTOG 'Recuerdo de voto en las elecciones generales de noviembre de 2019 de los votantes'
+/CERCANIA 'Partido político que considera más cercano a sus ideas en las elecciones generales de noviembre de 2019'
+/FIDEVOTO 'Fidelidad de voto en elecciones'
+/P31 'Momento de la decisión de voto'
+/ESCUELA 'Escolarización de la persona entrevistada'
+/NIVELESTENTREV 'Nivel de estudios alcanzado por la persona entrevistada'
+/RELIGION 'Religiosidad de la persona entrevistada'
+/ECIVIL 'Estado civil de la persona entrevistada'
+/SITLAB 'Situación laboral de la persona entrevistada'
+/CNO11 'Ocupación de la persona entrevistada'
+/CLASESOCIAL 'Clase social subjetiva de la persona entrevistada'
+/IA_E1_DIA 'Día de realización'
+/IA_E1_MES 'Mes de realización'
+/IA_E1_ANYO 'Año de realización'
+/IA_E2 'Día de la semana que se realiza la entrevista'
+/IA_E3 'Duración de la entrevista en minutos'
+/IA_E4 'Hora de realización'
+/P4A_7 'A través de la empresa'
+/P4A_8 'A un/a médico/a de la sanidad privada'
+/P4A_10 'A través de medios telemáticos'
+/P4A_11 'Se pusieron en contacto con el/la entrevistado/a (rastreadores/as, positivo familiar, Salud Responde)'
+/INTENCIONGR 'Intención de voto en supuestas elecciones generales'
+/INTENCIONGALTERR 'Intención de voto alternativo en supuestas elecciones generales [recodificada]'
+/VOTOSIMG 'Voto+simpatía en supuestas elecciones generales'
+/RECUVOTOGR 'Recuerdo de voto en las elecciones generales de noviembre de 2019 de los votantes [recodificada]'
+/RECUERDO 'Recuerdo de voto en las elecciones generales de noviembre de 2019'
+/ESTUDIOS 'Estudios de la persona entrevistada'
+/CLASESUB 'Identificación subjetiva de clase'
+.
+
+VALUE LABELS
+ESTUDIO
+/CUES
+/CCAA
+1 'Andalucía' 2 'Aragón' 3 'Asturias (Principado de)' 4 'Balears (Illes)' 5 'Canarias' 6 'Cantabria'
+7 'Castilla-La Mancha' 8 'Castilla y León' 9 'Cataluña' 10 'Comunitat Valenciana' 11 'Extremadura'
+12 'Galicia' 13 'Madrid (Comunidad de)' 14 'Murcia (Región de)' 15 'Navarra (Comunidad Foral de)'
+16 'País Vasco' 17 'Rioja (La)' 18 'Ceuta (Ciudad autónoma de)' 19 'Melilla (Ciudad autónoma de)'
+/PROV
+1 'Araba/Álava' 2 'Albacete' 3 'Alicante/Alacant' 4 'Almería' 5 'Ávila' 6 'Badajoz' 7 'Illes Balears'
+8 'Barcelona' 9 'Burgos' 10 'Cáceres' 11 'Cádiz' 12 'Castellón/Castelló' 13 'Ciudad Real' 14 'Córdoba'
+15 'Coruña (A)' 16 'Cuenca' 17 'Girona' 18 'Granada' 19 'Guadalajara' 20 'Gipuzkoa' 21 'Huelva'
+22 'Huesca' 23 'Jaén' 24 'León' 25 'Lleida' 26 'Rioja (La)' 27 'Lugo' 28 'Madrid' 29 'Málaga'
+30 'Murcia' 31 'Navarra' 32 'Ourense' 33 'Asturias' 34 'Palencia' 35 'Palmas (Las)' 36 'Pontevedra'
+37 'Salamanca' 38 'Santa Cruz de Tenerife' 39 'Cantabria' 40 'Segovia' 41 'Sevilla' 42 'Soria'
+43 'Tarragona' 44 'Teruel' 45 'Toledo' 46 'Valencia/València' 47 'Valladolid' 48 'Bizkaia' 49 'Zamora'
+50 'Zaragoza' 51 'Ceuta' 52 'Melilla'
+/MUN
+0 'Mun.<=100.000 hab. no capitales de CA o provincia' 1 'Ceuta / Melilla' 3 'Albacete' 4 'Algeciras'
+5 'Alcalá de Henares' 6 'Alcobendas' 7 'Alcorcón' 12 'Cádiz' 13 'Almería / Barakaldo' 14 'Alicante/Alacant'
+15 'Badalona / Badajoz' 16 'Cartagena / Palmas de Gran Canaria (Las)' 19 'Ávila / Barcelona'
+20 'Bilbao / Jerez de la Frontera' 21 'Córdoba' 23 'La Laguna' 24 'Gijón' 26 'Telde' 28 'Lugo'
+30 'Coruña (A) / Murcia' 34 'Ciudad Real' 37 'Cáceres' 38 'Pontevedra / Santa Cruz de Tenerife / Dos Hermanas'
+40 'Castellón de la Plana/Castelló de la Plana / Palma de Mallorca' 41 'Huelva' 44 'Oviedo'
+50 'Jaén' 54 'Ourense' 57 'Vigo' 58 'Fuenlabrada' 59 'Burgos / Vitoria-Gasteiz' 65 'Elche/Elx / Getafe'
+67 'Málaga' 69 'Donostia/San Sebastián / Marbella' 74 'Leganés' 75 'Santander' 78 'Cuenca / Santiago de Compostela'
+79 'Girona / Madrid' 83 'Mérida' 87 'Granada' 89 'León / Logroño' 91 'Sevilla' 92 'Móstoles'
+101 'Hospitalet de Llobregat' 106 'Parla' 120 'Lleida / Palencia' 121 'Mataró' 123 'Reus' 125 'Huesca'
+130 'Guadalajara' 148 'Tarragona / Torrejón de Ardoz' 168 'Toledo' 173 'Soria' 186 'Valladolid'
+187 'Sabadell' 194 'Segovia' 201 'Pamplona/Iruña' 216 'Teruel' 245 'Santa Coloma de Gramenet'
+250 'València' 274 'Salamanca' 275 'Zamora' 279 'Terrassa' 297 'Zaragoza'
+/CAPITAL
+1 'Capital de CC. AA.' 2 'Capital de provincia' 3 'Otros municipios'
+/TAMUNI
+1 'Menos o igual a 2.000 habitantes' 2 '2.001 a 10.000 habitantes' 3 '10.001 a 50.000 habitantes'
+4 '50.001 a 100.000 habitantes' 5 '100.001 a 400.000 habitantes' 6 '400.001 a 1.000.000 habitantes'
+7 'Más de 1.000.000 habitantes'
+/ENTREV
+0 'Anonimizado'
+/TIPO_TEL
+1 'Fijo' 2 'Móvil'
+/SEXO
+1 'Hombre' 2 'Mujer'
+/EDAD
+99 'N.C.'
+/P0
+1 'Española' 2 'Española y otra' 3 'Otra nacionalidad'
+/P1
+1 'Mucho' 2 'Bastante' 3 'Poco' 4 '(NO LEER) Regular' 5 'Nada' 8 'N.S.' 9 'N.C.'
+/P2
+1 'Los efectos sobre la salud' 2 'Los efectos sobre la economía y el empleo' 3 '(NO LEER) Ambos por igual'
+4 '(NO LEER) Ni unos ni otros' 8 'N.S.' 9 'N.C.'
+/P3
+1 'Habría que tomar medidas más exigentes' 2 'Podemos continuar como hasta ahora' 3 'Medidas dependiendo de cada zona'
+4 'Medidas menos exigentes' 5 'Nuevas medidas más eficaces y mejor planteadas' 6 'Medidas de prevención, más medios (haciendo más pruebas, más rastreadores/as,...)'
+7 'Depende de cada situación' 8 'Cumplimiento de las medidas, más control y penalizaciones'
+9 'Mejor gestión y coordinación política' 10 'Ambas posibilidades' 11 'Medidas de concienciación ciudadana y responsabilidad'
+96 'Otras respuestas' 98 '(NO LEER) No lo sabe, duda' 99 'N.C.'
+/P4
+1 'Sí' 2 'No' 9 'N.C.'
+/P4A_1
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_2
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_3
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_4
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_5
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_6
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_9
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4B
+1 'Muy buena' 2 'Buena' 3 '(NO LEER) Regular' 4 'Mala' 5 'Muy mala' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P4C
+1 'Sí' 2 'No' 9 'N.C.' 0 'N.P.'
+/P4D
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P4E
+1 'Sí' 2 'No' 9 'N.C.' 0 'N.P.'
+/P4F
+1 'Tuve síntomas leves y la pasé en casa' 2 'Tuve síntomas importantes, pero la pasé en casa'
+3 'Tuve que ingresar en el hospital' 9 'N.C.' 0 'N.P.'
+/P4G_1
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4G_2
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4G_3
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4G_4
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4G_5
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4G_9
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_1
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_2
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_3
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_4
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_5
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_6
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4H_9
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4I
+1 'Muy buena' 2 'Buena' 3 '(NO LEER) Regular' 4 'Mala' 5 'Muy mala' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.'
+/P5A_1
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5A_2
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5A_3
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5A_4
+1 'Sí' 2 'No' 8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5B_1
+1 'Mucha urgencia' 2 'Bastante urgencia' 3 'Regular' 4 'Poca urgencia' 5 'Apenas sin urgencia'
+8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5B_2
+1 'Mucha urgencia' 2 'Bastante urgencia' 3 'Regular' 4 'Poca urgencia' 5 'Apenas sin urgencia'
+8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5B_3
+1 'Mucha urgencia' 2 'Bastante urgencia' 3 'Regular' 4 'Poca urgencia' 5 'Apenas sin urgencia'
+8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P5B_4
+1 'Mucha urgencia' 2 'Bastante urgencia' 3 'Regular' 4 'Poca urgencia' 5 'Apenas sin urgencia'
+8 'N.S.' 9 'N.C.' 0 'N.P.'
+/P6
+1 'Clases presenciales en todo' 2 'Clases online' 3 'Mezcla de clases presenciales y online'
+4 'Que no haya clases hasta que termine la pandemia' 5 'Dependiendo de las edades y los cursos'
+6 'Dependiendo de diferentes factores (evolución de la pandemia, zonas, medidas generales tomadas)'
+7 'Dependiendo de los recursos económicos y necesidades de los/as padres/madres' 8 'Dependiendo del colegio: preparación previa y según medidas tomadas'
+9 'Presencial con más profesores, grupos reducidos y turnos' 96 'Otras respuestas' 98 'N.S.'
+99 'N.C.'
+/P6A
+1 'Sí' 2 'No' 9 'N.C.'
+/P7
+1 'Sí' 2 'No' 3 'Sí, si tiene garantías, si está probada, si es fiable' 4 'Sí, según el origen de la vacuna'
+5 'Sí, si hay información suficiente' 7 'Sí, por consejo de las autoridades, científicos/as o sanitarios/as'
+6 'Otras respuestas' 8 '(NO LEER) No lo sabe, duda' 9 'N.C.'
+/P8
+1 'Le merece mucha confianza' 2 'Le merece bastante confianza' 3 '(NO LEER) Regular' 4 'Le merece poca confianza'
+5 'No le merece ninguna confianza' 8 'N.S.' 9 'N.C.'
+/P9
+1 'El Gobierno de España' 2 'El Gobierno de las comunidades autonónomas' 3 'Ambos en colaboración'
+4 'Médicos/as, científicos/as y expertos/as en sanidad independientes' 5 'Otro gobierno, un gobierno de otro tipo liderado por expertos/as'
+7 'Organizaciones o instituciones (OMS, UE)' 6 'Otras respuestas' 8 '(NO LEER) No lo sabe, duda'
+9 'N.C.'
+/P10
+1 'Cree que la mayoría está reaccionando con civismo y solidaridad' 2 'Cree que la mayoría está siendo poco cívica e indisciplinada'
+8 '(NO LEER) No lo sabe, duda' 9 'N.C.'
+/P11_1
+1 'Desarrollo con limitaciones' 2 'Desarrollo que tiene en cuenta a las generaciones futuras'
+3 'Desarrollo que tiene en cuenta a todas las personas independientemente de su etnia, género, origen social, etc.'
+4 'Desarrollo sin dañar el medio ambiente' 5 'Desarrollo que tiene en cuenta el cambio climático'
+6 'Desarrollo ordenado' 7 'Desarrollo equitativo' 8 'Otro/s' 97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P11_2
+1 'Desarrollo con limitaciones' 2 'Desarrollo que tiene en cuenta a las generaciones futuras'
+3 'Desarrollo que tiene en cuenta a todas las personas independientemente de su etnia, género, origen social, etc.'
+4 'Desarrollo sin dañar el medio ambiente' 5 'Desarrollo que tiene en cuenta el cambio climático'
+6 'Desarrollo ordenado' 7 'Desarrollo equitativo' 8 'Otro/s' 97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P12
+1 'Sí, conoce o ha oído hablar' 2 'No, es la primera vez que oye hablar de ella' 9 'N.C.'
+/P13_1
+1 'Erradicar la pobreza y acabar con el hambre y la desnutrición' 2 'Garantizar la salud y el bienestar'
+3 'Garantizar la educación de calidad para todos/as' 4 'Lograr la igualdad entre géneros' 5 'Garantizar la disponibilidad de agua, saneamiento y energía sostenible'
+6 'Fomentar de forma sostenible el crecimiento económico y el empleo digno' 7 'Desarrollar las infraestructuras y la industrialización sostenible'
+8 'Reducir las desigualdades entre países y dentro de ellos, promover la paz y el acceso a la justicia para todos/as'
+9 'Garantizar el consumo y la producción sostenible, y conseguir ciudades seguras y sostenibles'
+10 'Conservar y proteger los ecosistemas marinos y terrestres, y tomar medidas urgentes para combatir el cambio climático'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P13_2
+1 'Erradicar la pobreza y acabar con el hambre y la desnutrición' 2 'Garantizar la salud y el bienestar'
+3 'Garantizar la educación de calidad para todos/as' 4 'Lograr la igualdad entre géneros' 5 'Garantizar la disponibilidad de agua, saneamiento y energía sostenible'
+6 'Fomentar de forma sostenible el crecimiento económico y el empleo digno' 7 'Desarrollar las infraestructuras y la industrialización sostenible'
+8 'Reducir las desigualdades entre países y dentro de ellos, promover la paz y el acceso a la justicia para todos/as'
+9 'Garantizar el consumo y la producción sostenible, y conseguir ciudades seguras y sostenibles'
+10 'Conservar y proteger los ecosistemas marinos y terrestres, y tomar medidas urgentes para combatir el cambio climático'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P14_1
+1 'La falta de voluntad política' 2 'La falta de medios para su aplicación' 3 'La corrupción política e institucional'
+4 'Los hábitos de consumo insostenibles' 5 'La falta de conciencia social en personas, empresas e instituciones'
+6 'La utilización insostenible de la energía y los recursos naturales' 7 'El apego a ciertas tradiciones culturales y religiosas'
+8 'Las carencias en educación' 9 'La pandemia de la COVID-19' 10 'Intereses económicos' 96 'Otro/s'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P14_2
+1 'La falta de voluntad política' 2 'La falta de medios para su aplicación' 3 'La corrupción política e institucional'
+4 'Los hábitos de consumo insostenibles' 5 'La falta de conciencia social en personas, empresas e instituciones'
+6 'La utilización insostenible de la energía y los recursos naturales' 7 'El apego a ciertas tradiciones culturales y religiosas'
+8 'Las carencias en educación' 9 'La pandemia de la COVID-19' 10 'Intereses económicos' 96 'Otro/s'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P15
+1 'Muy buena' 2 'Buena' 3 '(NO LEER) Regular' 4 'Mala' 5 'Muy mala' 8 'N.S.' 9 'N.C.'
+/P16
+1 'Muy buena' 2 'Buena' 3 '(NO LEER) Regular' 4 'Mala' 5 'Muy mala' 8 'N.S.' 9 'N.C.'
+/P17_1
+1 'El paro' 2 'Las drogas' 3 'La inseguridad ciudadana' 4 'El terrorismo, ETA' 5 'Las infraestructuras'
+6 'La sanidad' 7 'La vivienda' 8 'La crisis económica, los problemas de índole económico' 9 'Los problemas relacionados con la calidad del empleo'
+10 'Los problemas de la agricultura, ganadería y pesca' 11 'La corrupción y el fraude' 12 'Las pensiones'
+13 'El mal comportamiento de los/as políticos/as' 14 'Las guerras en general' 15 'La Administración de Justicia'
+16 'Los problemas de índole social' 17 'El racismo' 18 'La inmigración' 19 'La violencia de género'
+20 'Los problemas relacionados con la juventud. Falta de apoyo y oportunidades a los/as jóvenes'
+21 'La crisis de valores' 22 'La educación' 23 'El medio ambiente' 24 'El Gobierno y partidos o políticos/as concretos/as'
+25 'El funcionamiento de los servicios públicos' 26 'Los nacionalismos' 27 'Los problemas relacionados con la mujer'
+28 'El terrorismo internacional' 29 'Las preocupaciones y situaciones personales' 30 'Los estatutos de autonomía'
+31 'Las negociaciones con ETA' 32 'La Reforma Laboral' 33 '"Los recortes"' 34 'Los bancos' 35 'La subida de impuestos'
+36 'Los desahucios' 37 'El fraude fiscal' 38 'Las hipotecas' 39 'La Monarquía' 40 'Las excarcelaciones'
+41 'La Ley del aborto' 42 'La subida de tarifas energéticas' 43 'El Ébola' 44 'Los refugiados/as'
+45 'La independencia de Cataluña' 46 'La falta de acuerdos, unidad y capacidad de colaboración. Situación de inestabilidad política'
+47 'La emigración' 48 'Los problemas relacionados con los/as autónomos/as' 49 'La falta de inversión en industrias e I+D'
+50 'Lo que hacen los partidos políticos' 51 'Los problemas políticos en general' 52 'Los extremismos'
+53 'Los peligros para la salud: COVID-19. El coronavirus' 88 'La falta de confianza en los/las políticos/as y las instituciones'
+89 'La falta de recursos suficientes para hacer frente a la pandemia' 90 'Las desigualdades, incluida la de género, las diferencias de clases, la pobreza'
+91 'Las incertidumbres ante el futuro, la inseguridad y el miedo al futuro' 92 'La España vaciada, la despoblación'
+94 'Poca concienciación ciudadana' 96 'Otras respuestas' 97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P17_2
+1 'El paro' 2 'Las drogas' 3 'La inseguridad ciudadana' 4 'El terrorismo, ETA' 5 'Las infraestructuras'
+6 'La sanidad' 7 'La vivienda' 8 'La crisis económica, los problemas de índole económico' 9 'Los problemas relacionados con la calidad del empleo'
+10 'Los problemas de la agricultura, ganadería y pesca' 11 'La corrupción y el fraude' 12 'Las pensiones'
+13 'El mal comportamiento de los/as políticos/as' 14 'Las guerras en general' 15 'La Administración de Justicia'
+16 'Los problemas de índole social' 17 'El racismo' 18 'La inmigración' 19 'La violencia de género'
+20 'Los problemas relacionados con la juventud. Falta de apoyo y oportunidades a los/as jóvenes'
+21 'La crisis de valores' 22 'La educación' 23 'El medio ambiente' 24 'El Gobierno y partidos o políticos/as concretos/as'
+25 'El funcionamiento de los servicios públicos' 26 'Los nacionalismos' 27 'Los problemas relacionados con la mujer'
+28 'El terrorismo internacional' 29 'Las preocupaciones y situaciones personales' 30 'Los estatutos de autonomía'
+31 'Las negociaciones con ETA' 32 'La Reforma Laboral' 33 '"Los recortes"' 34 'Los bancos' 35 'La subida de impuestos'
+36 'Los desahucios' 37 'El fraude fiscal' 38 'Las hipotecas' 39 'La Monarquía' 40 'Las excarcelaciones'
+41 'La Ley del aborto' 42 'La subida de tarifas energéticas' 43 'El Ébola' 44 'Los refugiados/as'
+45 'La independencia de Cataluña' 46 'La falta de acuerdos, unidad y capacidad de colaboración. Situación de inestabilidad política'
+47 'La emigración' 48 'Los problemas relacionados con los/as autónomos/as' 49 'La falta de inversión en industrias e I+D'
+50 'Lo que hacen los partidos políticos' 51 'Los problemas políticos en general' 52 'Los extremismos'
+53 'Los peligros para la salud: COVID-19. El coronavirus' 88 'La falta de confianza en los/las políticos/as y las instituciones'
+89 'La falta de recursos suficientes para hacer frente a la pandemia' 90 'Las desigualdades, incluida la de género, las diferencias de clases, la pobreza'
+91 'Las incertidumbres ante el futuro, la inseguridad y el miedo al futuro' 92 'La España vaciada, la despoblación'
+94 'Poca concienciación ciudadana' 96 'Otras respuestas' 97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P17_3
+1 'El paro' 2 'Las drogas' 3 'La inseguridad ciudadana' 4 'El terrorismo, ETA' 5 'Las infraestructuras'
+6 'La sanidad' 7 'La vivienda' 8 'La crisis económica, los problemas de índole económico' 9 'Los problemas relacionados con la calidad del empleo'
+10 'Los problemas de la agricultura, ganadería y pesca' 11 'La corrupción y el fraude' 12 'Las pensiones'
+13 'El mal comportamiento de los/as políticos/as' 14 'Las guerras en general' 15 'La Administración de Justicia'
+16 'Los problemas de índole social' 17 'El racismo' 18 'La inmigración' 19 'La violencia de género'
+20 'Los problemas relacionados con la juventud. Falta de apoyo y oportunidades a los/as jóvenes'
+21 'La crisis de valores' 22 'La educación' 23 'El medio ambiente' 24 'El Gobierno y partidos o políticos/as concretos/as'
+25 'El funcionamiento de los servicios públicos' 26 'Los nacionalismos' 27 'Los problemas relacionados con la mujer'
+28 'El terrorismo internacional' 29 'Las preocupaciones y situaciones personales' 30 'Los estatutos de autonomía'
+31 'Las negociaciones con ETA' 32 'La Reforma Laboral' 33 '"Los recortes"' 34 'Los bancos' 35 'La subida de impuestos'
+36 'Los desahucios' 37 'El fraude fiscal' 38 'Las hipotecas' 39 'La Monarquía' 40 'Las excarcelaciones'
+41 'La Ley del aborto' 42 'La subida de tarifas energéticas' 43 'El Ébola' 44 'Los refugiados/as'
+45 'La independencia de Cataluña' 46 'La falta de acuerdos, unidad y capacidad de colaboración. Situación de inestabilidad política'
+47 'La emigración' 48 'Los problemas relacionados con los/as autónomos/as' 49 'La falta de inversión en industrias e I+D'
+50 'Lo que hacen los partidos políticos' 51 'Los problemas políticos en general' 52 'Los extremismos'
+53 'Los peligros para la salud: COVID-19. El coronavirus' 88 'La falta de confianza en los/las políticos/as y las instituciones'
+89 'La falta de recursos suficientes para hacer frente a la pandemia' 90 'Las desigualdades, incluida la de género, las diferencias de clases, la pobreza'
+91 'Las incertidumbres ante el futuro, la inseguridad y el miedo al futuro' 92 'La España vaciada, la despoblación'
+94 'Poca concienciación ciudadana' 96 'Otras respuestas' 97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P18_1
+1 'El paro' 2 'Las drogas' 3 'La inseguridad ciudadana' 4 'El terrorismo, ETA' 5 'Las infraestructuras'
+6 'La sanidad' 7 'La vivienda' 8 'La crisis económica, los problemas de índole económicos' 9 'Los problemas relacionados con la calidad del empleo'
+10 'Los problemas de la agricultura, ganadería y pesca' 11 'La corrupción y el fraude' 12 'Las pensiones'
+13 'El mal comportamiento de los/as políticos/as' 14 'Las guerras en general' 15 'La Administración de Justicia'
+16 'Los problemas de índole social' 17 'El racismo' 18 'La inmigración' 19 'La violencia de género'
+20 'Los problemas relacionados con la juventud. Falta de apoyo y oportunidades a los/as jóvenes'
+21 'La crisis de valores' 22 'La educación' 23 'El medio ambiente' 24 'El Gobierno y partidos o políticos/as concretos/as'
+25 'El funcionamiento de los servicios públicos' 26 'Los nacionalismos' 27 'Los problemas relacionados con la mujer'
+28 'El terrorismo internacional' 29 'Las preocupaciones y situaciones personales' 30 'Los estatutos de autonomía'
+31 'Las negociaciones con ETA' 32 'La Reforma Laboral' 33 '"Los recortes"' 34 'Los bancos' 35 'La subida de impuestos'
+36 'Los desahucios' 37 'El fraude fiscal' 38 'Las hipotecas' 39 'La Monarquía' 40 'Las excarcelaciones'
+41 'La Ley del aborto' 42 'La subida de tarifas energéticas' 43 'El Ébola' 44 'Los refugiados/as'
+45 'La independencia de Cataluña' 46 'La falta de acuerdos, unidad y capacidad de colaboración. Situación de inestabilidad política'
+47 'La emigración' 48 'Los problemas relacionados con los/as autónomos/as' 49 'La falta de inversión en industrias e I+D'
+50 'Lo que hacen los partidos políticos' 51 'Los problemas políticos en general' 52 'Los extremismos'
+53 'Los peligros para la salud: COVID-19. La falta de recursos suficientes para hacer frente a la pandemia. El coronavirus'
+88 'La falta de confianza en los/las políticos/as y las instituciones' 90 'Las desigualdades, incluida la de género, las diferencias de clases, la pobreza'
+91 'Las incertidumbres ante el futuro, la inseguridad y el miedo al futuro' 92 'La España vaciada, la despoblación'
+93 'Tener que estar enclaustrado/a en casa' 94 'Avituallamiento de víveres en el hogar' 96 'Otras respuestas'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P18_2
+1 'El paro' 2 'Las drogas' 3 'La inseguridad ciudadana' 4 'El terrorismo, ETA' 5 'Las infraestructuras'
+6 'La sanidad' 7 'La vivienda' 8 'La crisis económica, los problemas de índole económicos' 9 'Los problemas relacionados con la calidad del empleo'
+10 'Los problemas de la agricultura, ganadería y pesca' 11 'La corrupción y el fraude' 12 'Las pensiones'
+13 'El mal comportamiento de los/as políticos/as' 14 'Las guerras en general' 15 'La Administración de Justicia'
+16 'Los problemas de índole social' 17 'El racismo' 18 'La inmigración' 19 'La violencia de género'
+20 'Los problemas relacionados con la juventud. Falta de apoyo y oportunidades a los/as jóvenes'
+21 'La crisis de valores' 22 'La educación' 23 'El medio ambiente' 24 'El Gobierno y partidos o políticos/as concretos/as'
+25 'El funcionamiento de los servicios públicos' 26 'Los nacionalismos' 27 'Los problemas relacionados con la mujer'
+28 'El terrorismo internacional' 29 'Las preocupaciones y situaciones personales' 30 'Los estatutos de autonomía'
+31 'Las negociaciones con ETA' 32 'La Reforma Laboral' 33 '"Los recortes"' 34 'Los bancos' 35 'La subida de impuestos'
+36 'Los desahucios' 37 'El fraude fiscal' 38 'Las hipotecas' 39 'La Monarquía' 40 'Las excarcelaciones'
+41 'La Ley del aborto' 42 'La subida de tarifas energéticas' 43 'El Ébola' 44 'Los refugiados/as'
+45 'La independencia de Cataluña' 46 'La falta de acuerdos, unidad y capacidad de colaboración. Situación de inestabilidad política'
+47 'La emigración' 48 'Los problemas relacionados con los/as autónomos/as' 49 'La falta de inversión en industrias e I+D'
+50 'Lo que hacen los partidos políticos' 51 'Los problemas políticos en general' 52 'Los extremismos'
+53 'Los peligros para la salud: COVID-19. La falta de recursos suficientes para hacer frente a la pandemia. El coronavirus'
+88 'La falta de confianza en los/las políticos/as y las instituciones' 90 'Las desigualdades, incluida la de género, las diferencias de clases, la pobreza'
+91 'Las incertidumbres ante el futuro, la inseguridad y el miedo al futuro' 92 'La España vaciada, la despoblación'
+93 'Tener que estar enclaustrado/a en casa' 94 'Avituallamiento de víveres en el hogar' 96 'Otras respuestas'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P18_3
+1 'El paro' 2 'Las drogas' 3 'La inseguridad ciudadana' 4 'El terrorismo, ETA' 5 'Las infraestructuras'
+6 'La sanidad' 7 'La vivienda' 8 'La crisis económica, los problemas de índole económicos' 9 'Los problemas relacionados con la calidad del empleo'
+10 'Los problemas de la agricultura, ganadería y pesca' 11 'La corrupción y el fraude' 12 'Las pensiones'
+13 'El mal comportamiento de los/as políticos/as' 14 'Las guerras en general' 15 'La Administración de Justicia'
+16 'Los problemas de índole social' 17 'El racismo' 18 'La inmigración' 19 'La violencia de género'
+20 'Los problemas relacionados con la juventud. Falta de apoyo y oportunidades a los/as jóvenes'
+21 'La crisis de valores' 22 'La educación' 23 'El medio ambiente' 24 'El Gobierno y partidos o políticos/as concretos/as'
+25 'El funcionamiento de los servicios públicos' 26 'Los nacionalismos' 27 'Los problemas relacionados con la mujer'
+28 'El terrorismo internacional' 29 'Las preocupaciones y situaciones personales' 30 'Los estatutos de autonomía'
+31 'Las negociaciones con ETA' 32 'La Reforma Laboral' 33 '"Los recortes"' 34 'Los bancos' 35 'La subida de impuestos'
+36 'Los desahucios' 37 'El fraude fiscal' 38 'Las hipotecas' 39 'La Monarquía' 40 'Las excarcelaciones'
+41 'La Ley del aborto' 42 'La subida de tarifas energéticas' 43 'El Ébola' 44 'Los refugiados/as'
+45 'La independencia de Cataluña' 46 'La falta de acuerdos, unidad y capacidad de colaboración. Situación de inestabilidad política'
+47 'La emigración' 48 'Los problemas relacionados con los/as autónomos/as' 49 'La falta de inversión en industrias e I+D'
+50 'Lo que hacen los partidos políticos' 51 'Los problemas políticos en general' 52 'Los extremismos'
+53 'Los peligros para la salud: COVID-19. La falta de recursos suficientes para hacer frente a la pandemia. El coronavirus'
+88 'La falta de confianza en los/las políticos/as y las instituciones' 90 'Las desigualdades, incluida la de género, las diferencias de clases, la pobreza'
+91 'Las incertidumbres ante el futuro, la inseguridad y el miedo al futuro' 92 'La España vaciada, la despoblación'
+93 'Tener que estar enclaustrado/a en casa' 94 'Avituallamiento de víveres en el hogar' 96 'Otras respuestas'
+97 'Ninguno' 98 'N.S.' 99 'N.C.'
+/P19_1
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P19_2
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P19_3
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P19_4
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P19_5
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P20
+1 'Mucha confianza' 2 'Bastante confianza' 3 'Poca confianza' 4 'Ninguna confianza' 8 'N.S.'
+9 'N.C.'
+/P21
+1 'Mucha confianza' 2 'Bastante confianza' 3 'Poca confianza' 4 'Ninguna confianza' 8 'N.S.'
+9 'N.C.'
+/P22
+1 'Pedro Sánchez' 2 'Pablo Casado' 3 'Santiago Abascal' 4 'Pablo Iglesias' 5 'Alberto Garzón'
+6 'Inés Arrimadas' 7 'Íñigo Errejón' 96 '(NO LEER) Otro/a' 97 '(NO LEER) Ninguno/a de ellos/as'
+98 'N.S.' 99 'N.C.'
+/INTENCIONG
+2 'PSOE' 1 'PP' 18 'VOX' 3 'Podemos' 5 'IU' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CC-PNC'
+16 'Nueva Canarias' 14 'UPN' 7 'Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 15 'FAC'
+20 'Los Verdes' 25 'MÉS (PSM-Entesa)' 22 'EQUO' 27 'Escaños en Blanco' 29 'Partido Libertario'
+34 'Geroa Bai' 39 'PCPE' 95 'Otro partido' 96 'Voto blanco' 77 'Voto nulo' 97 'No votaría' 98 'No sabe todavía'
+99 'N.C.'
+/INTENCIONGALTER
+1 'PP' 2 'PSOE' 3 'Podemos' 4 'Ciudadanos' 5 'IU' 6 'En Comú Podem' 7 'Compromís' 8 'ERC' 9 'JxCat'
+10 'En Marea' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CC-PNC' 14 'UPN' 15 'FAC' 16 'Nueva Canarias' 17 'PACMA'
+18 'VOX' 19 'CUP' 20 'Los Verdes' 21 'Unidas Podemos' 22 'EQUO' 23 'PAR' 24 'BNG' 25 'MÉS (PSM-Entesa)'
+26 'Falange Española de las JONS' 27 'Escaños en Blanco' 28 'España 2000' 29 'Partido Libertario'
+30 'CHA' 31 'Recortes Cero' 32 'Directe 68' 33 'Partido Feminista de España' 34 'Geroa Bai'
+35 'Bloc' 36 'Convergència' 37 'Compromís-Podemos-EUPV' 38 'UPyD' 39 'PCPE' 40 'PI' 41 'PAYJ'
+42 'IGRE' 43 'PRC' 44 'UPL' 45 'Recortes Cero-Grupo Verde' 46 'Coalición Caballas' 47 'MDyC'
+48 'Coalición por Melilla' 49 'PPL' 50 'Más país' 51 'PR+' 52 'Actúa' 53 'Anova-Irmandade Nacionalista'
+54 'Compromiso por Galicia' 55 'Barcelona pel Canvi' 56 'Zaragoza en Común' 57 'Santiago Aberta'
+60 'CNxR' 61 'Democracia Nacional' 62 'Poble Lliure' 63 'Partido Humanista' 64 'Som Valencians'
+65 'Converxencia Galega' 66 'Terra Galega' 67 'En Común-Unidas Podemos' 68 'Teruel Existe' 69 'Extremadura Unida'
+90 'Adelante Sevilla' 95 'Otro partido' 96 'En blanco' 77 'Voto nulo' 93 '(NO LEER) No votaría a ningún otro partido (cita el mismo partido)'
+97 'No votaría' 98 'N.S.' 99 'N.C.' 0 'N.P.'
+/SIMPATIA
+0 'N.P.' 2 'PSOE' 1 'PP' 18 'VOX' 3 'Podemos' 5 'IU' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CC-PNC'
+14 'UPN' 7 'Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 15 'FAC' 20 'Los Verdes'
+22 'EQUO' 29 'Partido Libertario' 62 'Poble Lliure' 95 'Otro partido' 97 'Ninguno' 98 'N.S.'
+99 'N.C.'
+/ESCIDEOL
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/ESCIDEOLPOLI_1
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/ESCIDEOLPOLI_2
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/ESCIDEOLPOLI_3
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/ESCIDEOLPOLI_4
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/ESCIDEOLPOLI_5
+1 '1 Izquierda' 10 '10 Derecha' 98 'N.S.' 99 'N.C.'
+/P27_1
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P27_2
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P27_3
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P27_4
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/P27_5
+1 '1 Muy mal' 10 '10 Muy bien' 97 'No conoce' 98 'N.S.' 99 'N.C.'
+/PARTICIPACIONG
+1 'Fue a votar y votó ' 2 'No tenía edad para votar ' 3 'Fue a votar pero no pudo hacerlo '
+4 'No fue a votar porque no pudo ' 5 'Prefirió no votar ' 6 'No tenía derecho a voto ' 7 'Votó por correo'
+8 'No recuerda ' 9 'N.C.'
+/RECUVOTOG
+2 'PSOE' 1 'PP' 18 'VOX' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CC-PNC-NC'
+14 'Navarra Suma (UPN)' 7 'Més Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 95 'Otros partidos'
+96 'En blanco' 77 'Voto nulo' 98 'No recuerda' 99 'N.C.' 0 'N.P.'
+/CERCANIA
+2 'PSOE' 1 'PP' 18 'VOX' 3 'Podemos' 5 'IU' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+10 'En Marea' 4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu'
+13 'CC-PNC' 16 'Nueva Canarias' 14 'UPN' 7 'Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe'
+17 'PACMA' 15 'FAC' 20 'Los Verdes' 22 'EQUO' 25 'MÉS (PSM-Entesa)' 34 'Geroa Bai' 53 'Anova-Irmandade Nacionalista'
+27 'Escaños en Blanco' 29 'Partido Libertario' 62 'Poble Lliure' 95 'Otro partido' 97 'Ninguno'
+98 'N.S.' 99 'N.C.'
+/FIDEVOTO
+1 'Votan siempre por el mismo partido  ' 2 'Por lo general suelen votar por el mismo partido  '
+3 'Según lo que más les convenza en ese momento, votan por un partido u otro, o no votan  '
+4 '(NO LEER) Votan en blanco o nulo ' 5 '(NO LEER) No suelen votar  ' 6 '(NO LEER) Es la primera vez que votan  '
+8 'No recuerda/N.S.  ' 9 'N.C.'
+/P31
+1 'Antes del inicio de la campaña electoral' 2 'Al comienzo de la campaña electoral' 3 'Durante la última semana de campaña, unos días antes de las elecciones'
+4 'Durante la jornada de reflexión, el día anterior a la votación' 5 'El mismo día de las elecciones'
+6 '(NO LEER) No suele votar' 8 'N.S.' 9 'N.C.'
+/ESCUELA
+1 'No, es analfabeto/a' 2 'No, pero sabe leer y escribir' 3 'Sí, ha ido a la escuela' 9 'N.C.'
+/NIVELESTENTREV
+0 'N.P.' 1 'Menos de 5 años de escolarización ' 2 'Educación Primaria (Educación Primaria de LOGSE, 5º curso de EGB, enseñanza primaria antigua) '
+3 'Cualificación profesional grado inicial (FP grado inicial). PCPI (Programas de Cualificación Profesional Inicial, que no'+' precisan de titulación académica de la primera etapa de secundaria para su realización). Programas de garantía social '
+4 'Educación secundaria (ESO, EGB. Graduado Escolar. Certificado de Escolaridad, Bachillerato Elemental) '
+5 'FP de Grado Medio (ciclo/módulo formativo de FP (grado medio), de Artes Plásticas y Diseño, Música y Danza, enseñanzas d'+'eportivas, FP I, Bachiller Laboral Elemental. Oficialía Industrial; Bachillerato Comercial) '
+6 'Bachillerato (Bachillerato LOGSE, BUP, Bachillerato Superior (6º), Bachillerato Universitario (7º), incluidos COU y PREU'+') '
+7 'FP de Grado Superior (ciclo/módulo formativo de FP (grado superior) de Artes Plásticas, Diseño, Música y Danza, Deporte,'+' FP II, Bachillerato Laboral Superior, Maestría industrial, perito/a mercantil; Secretariado de 2º grado; Grado Medio co'+'nservatorio) '
+8 'Arquitectura/Ingeniería Técnica (aparejador/a; peritos/as) ' 9 'Diplomatura (ATENCIÓN: sólo diplomaturas oficiales, no codificar aquí los tres primeros años de una licenciatura o grado'+' con mayor duración) '
+10 'Grado (estudios de grado, enseñanzas artísticas equivalentes (desde 2006)) ' 11 'Licenciatura (titulaciones con equivalencia oficial: 2º ciclo INEF; Danza y Arte Dramático (desde 1992); Grado Superior '+'de Música) '
+12 'Arquitectura/Ingeniería' 13 'Máster oficial universitario (especialidades médicas o equivalente) '
+14 'Doctorado' 15 'Títulos propios de posgrado (máster no oficial, etc.) ' 16 'Otros estudios '
+98 'N.S./No recuerda ' 99 'N.C.'
+/RELIGION
+1 'Católico/a practicante' 2 'Católico/a no practicante' 3 'Creyente de otra religión' 4 'Agnóstico/a'
+5 'Indiferente, no creyente' 6 'Ateo/a' 9 'N.C.'
+/ECIVIL
+1 'Casado/a' 2 'Soltero/a' 3 'Viudo/a' 4 'Separado/a' 5 'Divorciado/a' 9 'N.C.'
+/SITLAB
+1 'Trabaja' 2 'Jubilado/a o pensionista (anteriormente ha trabajado) ' 3 'Pensionista (anteriormente no ha trabajado) '
+4 'En paro y ha trabajado antes ' 5 'En paro y busca su primer empleo ' 6 'Estudiante ' 7 'Trabajo doméstico no remunerado '
+8 'Otra situación' 9 'N.C.'
+/CNO11
+0 'N.P.' 1 'Directores/as y gerentes' 2 'Profesionales científicos/as e intelectuales' 3 'Técnicos/as y profesionales de nivel medio'
+4 'Personal de apoyo administrativo' 5 'Trabajadores/as de los servicios y vendedores/as de comercios y mercados'
+6 'Agricultores/as y trabajadores/as cualificados/as agropecuarios/as, forestales y pesqueros/as'
+7 'Oficiales/as, operarios/as y artesanos/as de artes mecánicas y de otros oficios' 8 'Operadores/as de instalaciones y máquinas y ensambladores/as'
+9 'Ocupaciones elementales' 10 'Ocupaciones militares y cuerpos policiales' 11 'Otra/o' 99 'N.C.'
+/CLASESOCIAL
+1 'Clase alta ' 2 'Clase media-alta ' 3 'Clase media-media ' 4 'Clase media-baja ' 5 'Clase trabajadora/obrera '
+12 'Clase baja ' 6 'Clase pobre ' 7 'Infraclase' 8 'Proletariado' 9 'A los/as de abajo ' 10 'Excluidos/as'
+11 'A la gente común ' 96 'Otras' 97 'No cree en las clases ' 98 'No sabe/duda ' 99 'N.C.'
+/IA_E1_DIA
+99 'N.C.'
+/IA_E1_MES
+1 'Enero  ' 2 'Febrero  ' 3 'Marzo  ' 4 'Abril  ' 5 'Mayo  ' 6 'Junio  ' 7 'Julio  ' 8 'Agosto  '
+9 'Septiembre  ' 10 'Octubre  ' 11 'Noviembre    ' 12 'Diciembre  ' 99 'N.C.'
+/IA_E1_ANYO
+20 '2020'
+/IA_E2
+1 'Lunes' 2 'Martes' 3 'Miércoles' 4 'Jueves' 5 'Viernes' 6 'Sábado' 7 'Domingo' 9 'N.C.'
+/IA_E3
+/IA_E4
+1 'Mañana (9-12)' 2 'Mediodía (12-16)' 3 'Tarde (16-20)' 4 'Noche (20-22)' 5 'Otra (22-9)'
+/P4A_7
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_8
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_10
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/P4A_11
+1 'Menciona' 2 'No menciona' 0 'N.P.'
+/INTENCIONGR
+2 'PSOE' 1 'PP' 18 'VOX' 3 'Podemos' 5 'IU' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CCa-NC'
+16 'Nueva Canarias' 14 'NA+' 7 'Més Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA'
+15 'FAC' 20 'Los Verdes' 25 'MÉS (PSM-Entesa)' 95 'Otro partido' 96 'Voto blanco' 77 'Voto nulo'
+97 'No votaría' 98 'No sabe todavía' 99 'N.C.'
+/INTENCIONGALTERR
+0 'N.P.' 2 'PSOE' 1 'PP' 18 'VOX' 3 'Podemos' 5 'IU' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CCa-NC'
+14 'NA+' 7 'Més Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 15 'FAC' 20 'Los Verdes'
+25 'MÉS (PSM-Entesa)' 95 'Otro partido' 96 'Voto blanco' 77 'Voto nulo' 93 '(NO LEER) No votaría a ningún otro partido (cita el mismo partido)'
+97 'No votaría' 98 'N.S.' 99 'N.C.'
+/VOTOSIMG
+2 'PSOE' 1 'PP' 18 'VOX' 3 'Podemos' 5 'IU' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+4 'Ciudadanos' 50 'Más País' 8 'ERC' 9 'JxCat' 19 'CUP' 11 'EAJ-PNV' 12 'EH Bildu' 13 'CCa-NC'
+14 'NA+' 7 'Més Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 15 'FAC' 20 'Los Verdes'
+25 'MÉS (PSM-Entesa)' 95 'Otro partido' 96 'En blanco' 77 'Voto nulo' 97 'No votaría' 98 'No sabe todavía'
+99 'N.C.'
+/RECUVOTOGR
+0 'N.P.' 2 'PSOE' 1 'PP' 18 'VOX' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+8 'ERC' 4 'Ciudadanos' 9 'JxCat' 11 'EAJ-PNV' 12 'EH Bildu' 50 'Más País' 19 'CUP' 13 'CCa-NC'
+14 'Na+' 7 'Més Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 95 'Otros partidos'
+96 'En blanco' 77 'Voto nulo' 98 'No recuerda' 99 'N.C.'
+/RECUERDO
+2 'PSOE' 1 'PP' 18 'VOX' 21 'Unidas Podemos' 6 'En Comú Podem' 67 'En Común-Unidas Podemos'
+8 'ERC' 4 'Ciudadanos' 9 'JxCat' 11 'EAJ-PNV' 12 'EH Bildu' 50 'Más País' 19 'CUP' 13 'CCa-NC'
+14 'Na+' 7 'Més Compromís' 24 'BNG' 43 'PRC' 68 'Teruel Existe' 17 'PACMA' 95 'Otros partidos'
+96 'En blanco' 77 'Nulo' 94 'No tenía edad' 97 'No votó' 93 'No tenía derecho a voto' 98 'No recuerda'
+99 'N.C.'
+/ESTUDIOS
+1 'Sin estudios' 2 'Primaria' 3 'Secundaria 1ª etapa' 4 'Secundaria 2ª etapa' 5 'F.P.' 6 'Superiores'
+7 'Otros' 9 'N.C.'
+/CLASESUB
+1 'Clase alta y media alta' 2 'Clase media-media' 3 'Clase media-baja' 4 'Clase trabajadora/obrera/proletariado'
+5 'Clase baja/pobre' 6 'Otras' 8 'N.S.' 9 'N.C.'
+.
+EXECUTE.
+
+MISSING VALUES
+ P4A_1 (0) P4A_2 (0) P4A_3 (0) P4A_4 (0) P4A_5 (0) P4A_6 (0) P4A_9 (0) P4B (0) P4C (0) P4D (0)
+ P4E (0) P4F (0) P4G_1 (0) P4G_2 (0) P4G_3 (0) P4G_4 (0) P4G_5 (0) P4G_9 (0) P4H_1 (0) P4H_2 (0)
+ P4H_3 (0) P4H_4 (0) P4H_5 (0) P4H_6 (0) P4H_9 (0) P4I (0) P5A_1 (0) P5A_2 (0) P5A_3 (0) P5A_4 (0)
+ P5B_1 (0) P5B_2 (0) P5B_3 (0) P5B_4 (0) INTENCIONGALTER (0) SIMPATIA (0) RECUVOTOG (0) NIVELESTENTREV (0)
+ CNO11 (0) P4A_7 (0) P4A_8 (0) P4A_10 (0) P4A_11 (0) INTENCIONGALTERR (0) RECUVOTOGR (0).
+EXECUTE.
+FREQUENCIES VARIABLES ALL.
