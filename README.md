@@ -3,7 +3,6 @@
 Dependency-free Python package that makes Spanish election data accessible and provides tools to analyse the data and run counterfactual simulations.
 
 The package is under refactoring, removing dependencies, and simplifying its structure. The following functionality is still not available:
-- blocs
 - examples
 
 
@@ -22,7 +21,7 @@ This will make the `spanish_elections` available in Python.
 ### Future Plans
 
 This project is just starting! Here is a to-do list for this package:
-- [ ] clean bloc functionality
+- [x] clean bloc functionality
 - [ ] adapt jupyter notebooks to latest changes
   - [ ] add simulation
   - [ ] add vote transfers
