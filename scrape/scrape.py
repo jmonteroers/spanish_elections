@@ -7,7 +7,8 @@ import time
 from datetime import datetime
 
 codes_filepath = Path(__file__).parent / "aacc_province_codes.csv"
-data_filepath = Path(__file__).parents[1] / "spanish_elections" / "data"
+data_filepath = Path(__file__).parents[1] / "spanish_elections" / "data" / "elections"
+
 # Some codes provided by INE don't match those used in ElPais website
 ac_corrections = {
     "Castilla y León": "08",
