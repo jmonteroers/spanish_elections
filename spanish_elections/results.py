@@ -93,9 +93,10 @@ class GeneralResults:
         for province_result in self.province_results:
             province_result.transfer_votes(transfer_rates)
 
-    def get_pparties(self) -> Set[str]:
+    def get_pparties(self, with_seats: bool = True) -> Set[str]:
         return set(
             pparty
             for province_result in self.province_results
-            for pparty in province_result.votes_per_pparty.keys()
+            for pparty, seats in province_result.seats_per_pparty.items()
+            if not with_seats or seats > 0 
         )

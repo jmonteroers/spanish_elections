@@ -48,4 +48,5 @@ def extract_nseats_from_xml(root: ET.Element) -> int:
 if __name__ == "__main__":
     last_results = load_election_results("2019")
     seats_last_results = last_results.get_seats_by_pparty()
+    pparties = last_results.get_pparties()
     breakpoint()
