@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional, Set
 from collections import defaultdict
 
 
@@ -10,7 +10,7 @@ class DictWithAddition:
     def __init__(self, d: dict):
         self.d = d
 
-    def __add__(self, other: DictWithAddition) -> DictWithAddition:
+    def __add__(self, other):
         out_d = self.d.copy()
         for key, value in other.d.items():
             out_d[key] = self.d.get(key, 0) + value
@@ -89,6 +89,7 @@ class GeneralResults:
 
     def get_pparties(self) -> Set[str]:
         return set(
-            pparty for province_result.votes_per_pparty.keys()
+            pparty
             for province_result in self.province_results
+            for pparty in province_result.votes_per_pparty.keys()
         )
