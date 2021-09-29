@@ -8,7 +8,7 @@ from spanish_elections.data import read_as_json
 blocs_path = Path(__file__).parent / "data" / "blocs"
 
 class Bloc:
-    def __init__(blocs: Dict[str, str]):
+    def __init__(self, blocs: Dict[str, str]):
         self.from_bloc_to_pparty = blocs
         self.from_pparty_to_bloc = {
             pparty: bloc for bloc, pparty in blocs.items()

@@ -16,22 +16,28 @@ class DictWithAddition:
             out_d[key] = self.d.get(key, 0) + value
         return DictWithAddition(out_d)
 
+    def __radd__(self, other):
+        if other == 0:
+            return self
+        else:
+            return self.__add__(other)
+
 
 class ProvinceResults:
-    def __init__(name: str, nseats: int, from_pparty_to_votes: Dict[str, int]):
+    def __init__(self, name: str, nseats: int, votes_per_pparty: Dict[str, int]):
         self.name = name
         self.nseats = nseats
-        self.votest_per_pparty = votes
+        self.votes_per_pparty = votes_per_pparty
         self.seats_per_pparty = self.assign_seats_to_pparty()
 
     def assign_seats_to_pparty(self) -> Dict[str, int]:
-        remaining_nseats = self.nseats
-        seats = {party: 0 for party in self.votest_per_pparty}
-        transformed_results = self.votest_per_pparty.copy()
-        while n_seats_remaining:
+        nseats_remaining = self.nseats
+        seats = {party: 0 for party in self.votes_per_pparty}
+        transformed_results = self.votes_per_pparty.copy()
+        while nseats_remaining:
             most_voted_party = argmax_dict(transformed_results)
             seats[most_voted_party] += 1
-            n_seats_remaining -= 1
+            nseats_remaining -= 1
             ratio_seats = seats[most_voted_party]/(1 + seats[most_voted_party])
             transformed_results[most_voted_party] *= ratio_seats
         return seats
@@ -45,7 +51,7 @@ class ProvinceResults:
         The transfers are applied from the original votes, so the order within
         list_transfer_votes does not affect the result
         '''
-        original_votes = self.votest_per_pparty.copy()
+        original_votes = self.votes_per_pparty.copy()
         for source, dest, prop in transfer_rates:
             votes_transferred = round(prop*original_votes[source])
             self.votes_per_pparty[source] -= votes_transferred
