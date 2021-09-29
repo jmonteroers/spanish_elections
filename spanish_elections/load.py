@@ -3,10 +3,10 @@ import json
 import xml.etree.ElementTree as ET
 from typing import TextIO, Dict
 
-from results import ProvinceResults, GeneralResults
+from spanish_elections.results import ProvinceResults, GeneralResults
 
 
-election_results_path = Path(__file__).parent / "data"
+election_results_path = Path(__file__).parent / "data" / "elections"
 
 
 def read_as_json(path):
@@ -15,7 +15,7 @@ def read_as_json(path):
 
 
 def load_election_results(year: str) -> GeneralResults:
-    election_data_path = election_results_path / "elections" / year / "congreso"
+    election_data_path = election_results_path / year / "congreso"
     province_results = []
     for xml_filepath in election_data_path.glob("*.xml"):
         province_name = xml_filepath.stem
@@ -47,4 +47,5 @@ def extract_nseats_from_xml(root: ET.Element) -> int:
 
 if __name__ == "__main__":
     last_results = load_election_results("2019")
+    seats_last_results = last_results.get_seats_by_pparty()
     breakpoint()
