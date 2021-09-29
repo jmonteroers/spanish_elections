@@ -1,3 +1,27 @@
 {
-  "pro": ["PSOE", "PODEMOS-IU", "ERC-SOBIRANISTES", ]
+  "pro": [
+    "PSOE",
+    "PODEMOS-IU",
+    "ERC-SOBIRANISTES",
+    "ECP-GUANYEM EL CANVI",
+    "EAJ-PNV",
+    "MÁS PAÍS-EQUO",
+    "PODEMOS-EU",
+    "MÉS COMPROMÍS",
+    "BNG",
+    "¡TERUEL EXISTE!"
+  ],
+  "against": [
+    "PP",
+    "VOX",
+    "Cs",
+    "JxCAT-JUNTS",
+    "CUP-PR",
+    "NA+",
+    "PRC"
+  ],
+  "abstain": [
+    "ERC-SOBIRANISTES",
+    "EH Bildu"
+  ]
 }
