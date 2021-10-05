@@ -1,28 +1,36 @@
 ## Introduction
-The purpose of this package is to provide tools to run counterfactual simulations of the Spanish elections and analyse the results. Additionally, it will make some election-related data easily accessible.
 
-The current version is an unstable version. In fact, I am only working with results from November 2019 General Elections extracted from [official sources](http://www.infoelectoral.mir.es/infoelectoral/min/areaDescarga.html?method=inicio) and I am translating serial code that simply did the job to a more modular solution with a package structure.
+Dependency-free Python package that makes Spanish election data accessible and provides tools to analyse the data and run counterfactual simulations.
+
+The package is under refactoring, removing dependencies, and simplifying its structure. The following functionality is still not available:
+- examples
+
+
+Data is extracted from XML files provided by El País website ([an example,
+my home city results in 2019!](http://rsl00.epimg.net/elecciones/2019/generales/senado/01/14.xml2)).
+To see more details, visit the scrape folder.
 
 ## Installation
-First, get the source. Then, within your shell, move to the root directory of your local installation, and run:
+As any other Python package, cd into root directory and run,
 ```
 python3 -m pip install .
 ```
 
-An alternative is to run the `install_with_venv.sh` bash script (only works in Unix systems). This script will create a virtual environment, install this package and its dependencies, and add the virtual environment as a kernel to your jupyter notebook installation (it's what I use myself to get the package running in my jupyter notebook). You can also pass a number of arguments to this script. For more info, check the file.
+This will make the `spanish_elections` available in Python.
 
-### Plans for the future
-Some functions will be added to transform the original votes. For example, to transfer votes from one political party to another (already available at the national level) or to extrapolate the result of a survey at the national level to provincial level data, and thus obtain the final results of the elections. Similarly, it will be interesting to add functions to work with confidence intervals at the survey level.
+### Future Plans
 
-Finally, it would be nice to add some functions to represent the results in a graphical and interactive manner, e.g. using plotly maps.
+This project is just starting! Here is a to-do list for this package:
+- [x] clean bloc functionality
+- [ ] adapt jupyter notebooks to latest changes
+  - [ ] add simulation
+  - [ ] add vote transfers
+- [ ] export results in tabular form as CSV (nice for Data Scientists!)
+- [ ] provide survey data
+  - [ ] confidence intervals based on survey data
+- [ ] extend tools to autonomous communities/provinces/senado
+- [ ] add interactive plots with results
+  - [ ] map plots
+  - [ ] evolution of results
 
-
-### To-do list
-- finish introductory jupyter notebook
-  - add simulation
-  - add vote transfers at national level
-- add data to package
-- add functions to transform survey results at different levels (national, provincial) to elections outcome
-- add ballot transfers at local level(interesting?)
-- add data from different elections
-- add interactive maps for results
+PRs are welcome :)
