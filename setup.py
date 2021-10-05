@@ -9,5 +9,5 @@ setup(
     description='tools to analyse and predict Spanish elections results',
     python_requires='>=3.6',
     include_package_data=True,
-    package_data={'': ['data/*.xml', 'data/*.json']}
+    package_data={'': ['data/elections/*.xml', 'data/blocs/*.json']}
 )
