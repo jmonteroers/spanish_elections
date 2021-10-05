@@ -8,6 +8,5 @@ setup(
     author='Juan Antonio Montero de Espinosa',
     description='tools to analyse and predict Spanish elections results',
     python_requires='>=3.6',
-    include_package_data=True,
-    package_data={'': ['data/elections/*.xml', 'data/blocs/*.json']}
+    include_package_data=True
 )
