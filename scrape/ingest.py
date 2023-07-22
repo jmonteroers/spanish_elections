@@ -8,9 +8,11 @@ from datetime import datetime
 from models import Election, PPartyResult, ProvinceResult, create_databases
 
 
-DB_FILENAME = "elections.db"
+DB_FILENAME = "elections_{time}.db"
 INPUT_PATH = Path(__file__).parent / "elections"
-OUTPUT_PATH = Path(__file__).parent / DB_FILENAME
+OUTPUT_PATH = Path(__file__).parent / DB_FILENAME.format(
+    time = datetime.now().strftime("%Y-%m-%d")
+    )
 
 
 from_year_to_date = {
@@ -18,7 +20,8 @@ from_year_to_date = {
     "2015": "2015-12-20",
     "2016": "2016-06-26", 
     "2019-28A": "2019-04-28",
-    "2019": "2019-11-10"
+    "2019": "2019-11-10",
+    "2023": "2023-07-23"
 }
 
 
